@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Capture form data
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
@@ -7,12 +7,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = htmlspecialchars($_POST['address']);
 
     // Display the success message along with the submitted data
-    echo "<div class='success'>";
-    echo "<h3>Registration Successful!</h3>";
-    echo "<p><strong>Name:</strong> " . $name . "</p>";
-    echo "<p><strong>Email:</strong> " . $email . "</p>";
-    echo "<p><strong>Phone:</strong> " . $phone . "</p>";
-    echo "<p><strong>Address:</strong> " . nl2br($address) . "</p>";
-    echo "</div>";
+    echo "<div>
+    <h2>Registration Successful</h2>
+    <p><strong>Name:</strong> $name</p>
+    <p><strong>Email:</strong> $email</p>
+    <p><strong>Phone:</strong> $phone</p>
+    <p><strong>Date of Birth:</strong> $address</p>
+  </div>";
+} else {
+echo "<p>Error: Invalid request method.</p>";
 }
 ?>
